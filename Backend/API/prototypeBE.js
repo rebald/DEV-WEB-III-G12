@@ -36,13 +36,13 @@ app.get('/', (req, res) => {
 	}
 );
 
-/*
+
 app.get('/:nom', (req, res) => {
 		//res.setHeader('Content-Type', 'text/html');
 		res.send('<h1>salut ' + req.params.nom +' </h1><h2> Comment vas-tu aujourd\'hui ?</h2>')
 	}
 )
-*/
+
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
