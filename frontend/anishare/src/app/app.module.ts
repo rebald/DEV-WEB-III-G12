@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { SearchComponent } from './search/search.component';
 import { PropoComponent } from './propo/propo.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PropoComponent } from './propo/propo.component';
     FooterComponent,
     ContactComponent,
     SearchComponent,
-    PropoComponent
+    PropoComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
