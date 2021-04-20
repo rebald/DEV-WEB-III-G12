@@ -160,3 +160,4 @@ router.post('/categorie', function (req, res, next) {
 
 module.exports = router;
 
+// fs.readfile
