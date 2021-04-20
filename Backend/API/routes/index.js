@@ -136,7 +136,23 @@ router.post('/image', function (req, res, next) {
 
     }
     else {
-      console.log("image ajouté ajouté");
+      console.log("image ajoutée");
+      res.send({"status":201, "error": null, "response":results});
+    }
+  });
+});
+
+router.post('/categorie', function (req, res, next) {
+  console.log(req.body);
+  console.log('POST categorie');
+  res.locals.connection.query('INSERT INTO categories (nomCategorie) VALUES (?)',[req.body.formCategorieNom], function (error, results, fields) {
+    if (error!=null) {
+      res.redirect(529, '/error');
+      console.log(error);
+
+    }
+    else {
+      console.log("categorie ajoutée");
       res.send({"status":201, "error": null, "response":results});
     }
   });
