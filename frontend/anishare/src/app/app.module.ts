@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ContactComponent } from './contact/contact.component';
-import { SearchComponent } from './search/search.component';
-import { PropoComponent } from './propo/propo.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {ContactComponent} from './contact/contact.component';
+import {SearchComponent} from './search/search.component';
+import {PropoComponent} from './propo/propo.component';
+import {InscriptionComponent} from './inscription/inscription.component';
+import {FiltreService} from './service/filtre.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { PropoComponent } from './propo/propo.component';
     FooterComponent,
     ContactComponent,
     SearchComponent,
-    PropoComponent
+    PropoComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FiltreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

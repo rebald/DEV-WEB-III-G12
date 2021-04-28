@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FiltreService } from '../service/filtre.service';
+import { categorie } from '../classes/categorie';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private filtre: FiltreService) {
   }
 
+  lstCategorie: categorie[];
+
+  ngOnInit(): void {
+    this.filtre.getCategorie()
+      .subscribe(
+        data => {
+          this.lstCategorie = data;
+        }
+      );
+  }
 }
