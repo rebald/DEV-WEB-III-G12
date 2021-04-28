@@ -4,7 +4,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SearchComponent } from './search/search.component';
 import { PropoComponent } from './propo/propo.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'inscription',
     component : InscriptionComponent
-  }
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
 ];
 
 @NgModule({
