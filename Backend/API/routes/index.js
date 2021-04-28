@@ -23,17 +23,15 @@ router.get('/test', function(req,res,next){
   });
 });
 
-/* BUG À CORRIGER
-
 router.get('/utilisateur', function(req,res,next){
   console.log('API get utilisateur');
 
-  let  idUtilsteur = req.query.userId;
-  let mailUtilisateur = req.query.mail;
+  let  id = req.query.idUtilisateur;
+  let mail = req.query.mailUtilisateur;
 
-  if (idUtilisateur !== undefined) {
-    console.log('GET utilisateur by id ' + idUtilsteur);
-    res.locals.connection.query('SELECT * FROM utilisateurs WHERE idUtilisateur=?', [idUtilsteur], function (error, results, fields) {
+  if (id !== undefined) {
+    console.log('GET utilisateur by id ' + id);
+    res.locals.connection.query('SELECT * FROM utilisateurs WHERE idUtilisateur=?', [id], function (error, results, fields) {
       if (error != null) {
         res.redirect(529, '/error');
         console.log("erreur query");
@@ -43,9 +41,9 @@ router.get('/utilisateur', function(req,res,next){
         console.log("query OK");
       }
     });
-  } else if (mailUtilisateur !== undefined) {
-    console.log('GET utilisateur by mail' + mailUtilisateur);
-    res.locals.connection.query('SELECT * FROM utilisateurs WHERE mailUtilisateur=?', [mailUtilisateur], function (error, results, fields) {
+  } else if (mail !== undefined) {
+    console.log('GET utilisateur by mail' + mail);
+    res.locals.connection.query('SELECT * FROM utilisateurs WHERE mailUtilisateur=?', [mail], function (error, results, fields) {
       if (error != null) {
         res.redirect(529, '/error');
         console.log("erreur query");
@@ -67,23 +65,9 @@ router.get('/utilisateur', function(req,res,next){
     }
   });
 }});
-*/
 
-router.get('/utilisateur', function(req,res,next){
-  console.log('API get utilisateur');
-  res.locals.connection.query('SELECT * FROM utilisateurs', function(error, results, fields) {
-  if (error!=null) {
-    res.redirect(529, '/error');
-    console.log("erreur querry");
-  }
-  else {
-    res.send({"status": 200, "error": null, "response": results});
-    console.log("query OK");
-  }});
-});
-
-router.get('/categorie', function(req,res,next){
-  console.log('API get categorie');
+router.get('/categorie.ts', function(req,res,next){
+  console.log('API get categorie.ts');
   res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
     if (error!=null) {
       res.redirect(529, '/error');
@@ -95,9 +79,35 @@ router.get('/categorie', function(req,res,next){
     }});
 });
 
-router.get('/image', function(req,res,next){
+router.get('/image', function(req,res,next) {
   console.log('API get image');
-  res.locals.connection.query('SELECT * FROM photo', function(error, results, fields) {
+  let idImg = req.query.idImg;
+  let idUser = req.query.idUser;
+
+  if (idImg !== undefined) {
+    console.log('API get image by id de l\'image: ' + idImg);
+    res.locals.connection.query('SELECT * FROM photo WHERE idPhoto=?', [idImg], function (error, results, fields) {
+      if (error != null) {
+        res.redirect(529, '/error');
+        console.log("erreur querry");
+      } else {
+        res.send({"status": 200, "error": null, "response": results});
+        console.log("query OK");
+      }
+    });
+  } else if (idUser !== undefined) {
+    console.log('API get image by id de l\'utilisateur: ' + idUser);
+    res.locals.connection.query('SELECT * FROM photo WHERE idUtilisateur=?', [idUser], function (error, results, fields) {
+      if (error != null) {
+        res.redirect(529, '/error');
+        console.log("erreur querry");
+      } else {
+        res.send({"status": 200, "error": null, "response": results});
+        console.log("query OK");
+      }
+    });
+  } else {
+    res.locals.connection.query('SELECT * FROM photo', function(error, results, fields) {
     if (error!=null) {
       res.redirect(529, '/error');
       console.log("erreur querry");
@@ -106,9 +116,43 @@ router.get('/image', function(req,res,next){
       res.send({"status": 200, "error": null, "response": results});
       console.log("query OK");
     }});
+    }});
+
+// test affichage api plus simple 127.0.0.1:3000/images/:idImg
+
+ router.get('/images/:idmg', function(req,res,next) {
+  console.log('API get image');
+  let idImg = req.params.idImg
+
+  if (idImg !== undefined) {
+    console.log('API get image by id de l\'image: ' + idImg);
+    res.locals.connection.query('SELECT * FROM photo WHERE idPhoto=?', [idImg], function (error, results, fields) {
+      if (error != null) {
+        res.redirect(529, '/error');
+        console.log("erreur querry");
+      } else {
+        res.send({"status": 200, "error": null, "response": results});
+        console.log("query OK");
+      }
+    });
+  }});
+
+router.get('/images', function(req,res,next) {
+  console.log('API get image');
+  res.locals.connection.query('SELECT * FROM photo', function (error, results, fields) {
+    if (error != null) {
+      res.redirect(529, '/error');
+      console.log("erreur querry");
+    } else {
+      res.send({"status": 200, "error": null, "response": results});
+      console.log("query OK");
+    }
+  });
 });
 
-/* POST */
+
+
+// POST //
 
 router.post('/inscription', function (req, res, next) {
   console.log(req.body);
@@ -142,9 +186,9 @@ router.post('/image', function (req, res, next) {
   });
 });
 
-router.post('/categorie', function (req, res, next) {
+router.post('/categorie.ts', function (req, res, next) {
   console.log(req.body);
-  console.log('POST categorie');
+  console.log('POST categorie.ts');
   res.locals.connection.query('INSERT INTO categories (nomCategorie) VALUES (?)',[req.body.formCategorieNom], function (error, results, fields) {
     if (error!=null) {
       res.redirect(529, '/error');
@@ -152,7 +196,7 @@ router.post('/categorie', function (req, res, next) {
 
     }
     else {
-      console.log("categorie ajoutée");
+      console.log("categorie.ts ajoutée");
       res.send({"status":201, "error": null, "response":results});
     }
   });

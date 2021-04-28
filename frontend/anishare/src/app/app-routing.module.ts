@@ -5,21 +5,22 @@ import { SearchComponent } from './search/search.component';
 import { PropoComponent } from './propo/propo.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
+
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: SearchComponent
   },
   {
-    path:'contact',
+    path: 'contact',
     component : ContactComponent
   },
   {
-    path:'apropos',
+    path: 'apropos',
     component : PropoComponent
   },
   {
-    path:'inscription',
+    path: 'inscription',
     component : InscriptionComponent
   }
 ];
