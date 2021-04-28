@@ -11,6 +11,7 @@ import {InscriptionComponent} from './inscription/inscription.component';
 import {FiltreService} from './service/filtre.service';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { AjoutImageComponent } from './ajout-image/ajout-image.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { LoginComponent } from './login/login.component';
     PropoComponent,
     InscriptionComponent,
     LoginComponent,
+    AjoutImageComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { SearchComponent } from './search/search.component';
 import { PropoComponent } from './propo/propo.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { LoginComponent } from './login/login.component';
+import { AjoutImageComponent } from './ajout-image/ajout-image.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  {
+    path: 'ajout-image',
+    component: AjoutImageComponent
+  }
 ];
 
 @NgModule({
