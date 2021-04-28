@@ -1,0 +1,66 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Poster une image
+          </div>
+          <div class="card-body">
+            <form>
+
+              <!-- Sélection de l'image à importer -->
+              <div class="form-group my-2">
+                <input type="file" accept=".jpg,.jpeg,.png" class="form-control-file" id="image">
+              </div>
+
+              <!-- Description de l'image -->
+              <div class="form-group my-2">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" maxlength="250"></textarea>
+              </div>
+
+              <!-- Input de la date -->
+              <div class='col-sm-6 form-group my-2'>
+                <div class="form-group">
+                  <div class='input-group date' id='datetimepicker3'>
+                    <input type='date' class="form-control"/>
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Listes déroulantes des tags -->
+              <div class="form-group col-auto my-2" multiple>
+                <label for="tag1">Tags</label>
+                <select id="tag1" class="custom-select mx-2">
+                  <option selected>choisir</option>
+                  <option>renard</option>
+                  <option>chien</option>
+                  <option>écureuil</option>
+                  <option>corbeau</option>
+                </select>
+                <select id="tag2" class="custom-select mx-2">
+                  <option selected>choisir</option>
+                  <option>renard</option>
+                  <option>chien</option>
+                  <option>écureuil</option>
+                  <option>corbeau</option>
+                </select>
+                <select id="tag3" class="custom-select mx-2">
+                  <option selected>choisir</option>
+                  <option>renard</option>
+                  <option>chien</option>
+                  <option>écureuil</option>
+                  <option>corbeau</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary float-right">Poster</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
