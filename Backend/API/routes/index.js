@@ -66,8 +66,8 @@ router.get('/utilisateur', function(req,res,next){
   });
 }});
 
-router.get('/categorie.ts', function(req,res,next){
-  console.log('API get categorie.ts');
+router.get('/categorie', function(req,res,next){
+  console.log('API get categorie');
   res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
     if (error!=null) {
       res.redirect(529, '/error');
