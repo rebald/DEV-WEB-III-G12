@@ -1,4 +1,4 @@
-export class categorie {
-idCategorie: number;
-nomCategorie: string
+export class categorie{
+idCategorie : number;
+nomCategorie : string;
 }

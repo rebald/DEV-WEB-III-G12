@@ -11,14 +11,13 @@ export class SearchComponent implements OnInit {
 
   constructor(private filtre: FiltreService) {
   }
-
   lstCategorie: categorie[];
 
   ngOnInit(): void {
     this.filtre.getCategorie()
       .subscribe(
         data => {
-          this.lstCategorie = data;
+          this.lstCategorie = data.response;
         }
       );
   }
