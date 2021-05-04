@@ -33,27 +33,21 @@
 
               <!-- Listes déroulantes des tags -->
               <div class="form-group col-auto my-2" multiple>
-                <label for="tag1">Tags</label>
-                <select id="tag1" class="custom-select mx-2">
-                  <option selected>choisir</option>
-                  <option>renard</option>
-                  <option>chien</option>
-                  <option>écureuil</option>
-                  <option>corbeau</option>
+                <label>Tags</label>
+                <select class="form-control">
+                  <option *ngFor="let i of lstCategorie" >
+                    {{i.nomCategorie}}
+                  </option>
                 </select>
-                <select id="tag2" class="custom-select mx-2">
-                  <option selected>choisir</option>
-                  <option>renard</option>
-                  <option>chien</option>
-                  <option>écureuil</option>
-                  <option>corbeau</option>
+                <select class="form-control">
+                  <option *ngFor="let i of lstCategorie" >
+                    {{i.nomCategorie}}
+                  </option>
                 </select>
-                <select id="tag3" class="custom-select mx-2">
-                  <option selected>choisir</option>
-                  <option>renard</option>
-                  <option>chien</option>
-                  <option>écureuil</option>
-                  <option>corbeau</option>
+                <select class="form-control">
+                  <option *ngFor="let i of lstCategorie" >
+                    {{i.nomCategorie}}
+                  </option>
                 </select>
               </div>
               <button type="submit" class="btn btn-primary float-right">Poster</button>
