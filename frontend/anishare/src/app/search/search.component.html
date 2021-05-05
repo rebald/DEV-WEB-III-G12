@@ -8,8 +8,9 @@
 
       <label>
         <select class="form-control">
-          <option *ngFor="let i of lstCategorie" >
-            {{i.nomCategorie}}
+          <option value="filtre">filtre</option>
+          <option *ngFor="let cat of lstCategorie" [value]="cat.nomCategorie">
+            {{cat.nomCategorie}}
           </option>
         </select>
       </label>

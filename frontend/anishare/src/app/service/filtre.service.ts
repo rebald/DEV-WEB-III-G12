@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
+// import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class FiltreService
@@ -11,3 +12,4 @@ export class FiltreService
     }
 }
 
+//  return this.http.get(environment.apiUrl + '/categorie');
