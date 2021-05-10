@@ -10,6 +10,7 @@ import {PropoComponent} from './propo/propo.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {FiltreService} from './service/filtre.service';
 import {HttpClientModule} from '@angular/common/http';
+import { AffichageComponent } from './affichage/affichage.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
     SearchComponent,
     PropoComponent,
     InscriptionComponent,
+    AffichageComponent,
   ],
   imports: [
     BrowserModule,

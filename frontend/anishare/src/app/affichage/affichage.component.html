@@ -1,0 +1,24 @@
+<section class="p-3 mb-2 bg-light text-dark">
+  <p>LOGO ICI</p>
+  <div class="text-center">
+    <h1>Anishare</h1>
+  </div>
+  <div class="input-group">
+
+    <div class="w-50 col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4 p-3 input-group mb-3 ">
+      <p>Trier par</p><br>
+      <label>
+      <select name="categorie" class="form-control">
+        <option value="par defaut"> catégorie </option>
+          <option *ngFor="let i of lstCategorie" [value]="i.nomCategorie">
+            {{i.nomCategorie}}
+          </option>
+        </select>
+        </label>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+
+
+
+    </div>
+  </div>
+</section>

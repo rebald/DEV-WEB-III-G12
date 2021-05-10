@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var request = require("request");
+var fs = require('fs');
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -119,7 +122,7 @@ router.get('/image', function(req,res,next) {
     }});
 
 // test affichage api plus simple 127.0.0.1:3000/images/:idImg
-
+/*
  router.get('/images/:idmg', function(req,res,next) {
   console.log('API get image');
   let idImg = req.params.idImg
@@ -149,8 +152,9 @@ router.get('/images', function(req,res,next) {
     }
   });
 });
+*/
 
-
+fs
 
 // POST //
 
