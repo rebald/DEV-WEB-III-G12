@@ -10,9 +10,9 @@ import {PropoComponent} from './propo/propo.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {FiltreService} from './service/filtre.service';
 import {HttpClientModule} from '@angular/common/http';
-import { AffichageComponent } from './affichage/affichage.component';
+import {AffichageComponent} from './affichage/affichage.component';
 import {InscriptionService} from './service/inscription.service';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import {InscriptionService} from './service/inscription.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [FiltreService, InscriptionService],
   bootstrap: [AppComponent]

@@ -1,39 +1,40 @@
-<!-- Default form register -->
-<form class="text-center border border-light p-5">
-
-    <p class="h4 mb-4">Sign up</p>
-
-    <div class="form-row mb-4">
-      <div class="col">
-        <!-- First name -->
-        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Prénom">
-      </div><br>
-      <div class="col">
-        <!-- Last name -->
-        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Nom">
+<div class="container">
+  <h2> Inscription </h2>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-10">
+        <form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
+          <div class="form-group">
+            <label>Nom</label>
+            <input class="form-control" type="text" name="formInscriptionNom" ngModel
+                   placeholder="Saisissez votre nom" required>
+          </div>
+          <div class="form-group">
+            <label>Prénom</label>
+            <input class="form-control" type="text" name="formInscriptionPrenom" ngModel
+                   placeholder="Saisissez votre prénom" required>
+          </div>
+          <div class="form-group">
+            <label>Adresse mail</label>
+            <input class="form-control" type="email" size="50" name="formInscriptionMail" ngModel
+                   placeholder="Saisissez votre adresse mail  ex:maxime@gmail.com"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input class="form-control" type="password" name="formInscriptionMdp" ngModel
+                   placeholder="Saisissez votre mot de passe" required>
+          </div>
+          <div class="form-group">
+            <label>Confirmation du mot de passe</label>
+            <input class="form-control" type="password" name="formInscriptionMdpConfirmation" ngModel
+                   placeholder="Confirmez votre mot de passe" required>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit" [disabled]="!userPost.form.valid">Inscription</button>
+          </div>
+        </form>
       </div>
     </div>
-
-    <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-    <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Mot de passe" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-      At least 8 characters and 1 digit
-
-      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Confirmer mot de passe" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    </small><br>
-
-    <!-- Sign up button -->
-    <button mdbBtn color="info" block="true" class="btn btn-primary text-right" type="submit">S'inscire</button>
-
-    <hr>
-
-    <!-- Terms of service -->
-    <p>En cliquant sur
-      <em>S'inscire</em> vous accepter les 
-      <a href="" target="_blank">terms of service</a></p>
-
-  </form>
-  <!-- Default form register -->
+  </div>
+</div>
