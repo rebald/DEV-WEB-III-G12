@@ -6,7 +6,7 @@
           <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Poster une image
           </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
               <!-- Sélection de l'image à importer -->
               <div class="form-group my-2">
@@ -35,17 +35,17 @@
               <div class="form-group col-auto my-2" multiple>
                 <label>Tags</label>
                 <select class="form-control">
-                  <option *ngFor="let i of lstCategorie" >
+                  <option *ngFor="let i of lstCategorie" value="{{i.idCategorie}}" >
                     {{i.nomCategorie}}
                   </option>
                 </select>
                 <select class="form-control">
-                  <option *ngFor="let i of lstCategorie" >
+                  <option *ngFor="let i of lstCategorie" value="{{i.idCategorie}}" >
                     {{i.nomCategorie}}
                   </option>
                 </select>
                 <select class="form-control">
-                  <option *ngFor="let i of lstCategorie" >
+                  <option *ngFor="let i of lstCategorie" value="{{i.idCategorie}}" >
                     {{i.nomCategorie}}
                   </option>
                 </select>

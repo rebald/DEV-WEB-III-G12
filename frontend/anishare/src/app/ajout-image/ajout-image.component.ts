@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FiltreService } from '../service/filtre.service';
+import { FormBuilder } from '@angular/forms';
+import { AjoutImageService } from '../service/ajout-image.service';
 import { categorie } from '../classes/categorie';
 
 @Component({
@@ -8,17 +9,30 @@ import { categorie } from '../classes/categorie';
   styleUrls: ['./ajout-image.component.scss']
 })
 export class AjoutImageComponent implements OnInit {
-
-  constructor(private filtre: FiltreService) { }
+  items = this.ajoutImageService.getItems();
+  checkoutForm = this.formBuilder.group({
+    name: '',
+    address: ''
+  });
+  constructor(
+    private ajoutImage: AjoutImageService,
+    private formBuilder: FormBuilder,
+    ) { }
 
   lstCategorie: categorie[];
 
   ngOnInit(): void {
-    this.filtre.getCategorie()
+    this.ajoutImage.getCategorie()
       .subscribe(
         data => {
           this.lstCategorie = data.response;
         }
       );
+  }
+  onSubmit(): void {
+    // Process checkout data here
+    this.items = this.cartService.clearCart();
+    console.warn('Your order has been submitted', this.checkoutForm.value);
+    this.checkoutForm.reset();
   }
 }
