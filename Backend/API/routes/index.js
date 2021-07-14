@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require("request");
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -120,7 +121,7 @@ router.get('/image', function(req,res,next) {
 
 // test affichage api plus simple 127.0.0.1:3000/images/:idImg
 
- router.get('/images/:idmg', function(req,res,next) {
+ router.get('/images/:idImg', function(req,res,next) {
   console.log('API get image');
   let idImg = req.params.idImg
 
@@ -173,7 +174,7 @@ router.post('/inscription', function (req, res, next) {
 router.post('/image', function (req, res, next) {
   console.log(req.body);
   console.log('POST image');
-  res.locals.connection.query('INSERT INTO photo (idUtilisateur, image, idCategorie) VALUES (?, ?, ?)',[req.body.formImageUserId, req.body.formImagePhoto, req.body.formImageCategorieId], function (error, results, fields) {
+  res.locals.connection.query('INSERT INTO photo (idUtilisateur, image, idCategorie) VALUES (?, ?, ?)',[req.body.idUtilisateur, req.body.image, req.body.catImage], function (error, results, fields) {
     if (error!=null) {
       res.redirect(529, '/error');
       console.log(error);
@@ -189,6 +190,7 @@ router.post('/image', function (req, res, next) {
 router.post('/categorie.ts', function (req, res, next) {
   console.log(req.body);
   console.log('POST categorie.ts');
+
   res.locals.connection.query('INSERT INTO categories (nomCategorie) VALUES (?)',[req.body.formCategorieNom], function (error, results, fields) {
     if (error!=null) {
       res.redirect(529, '/error');

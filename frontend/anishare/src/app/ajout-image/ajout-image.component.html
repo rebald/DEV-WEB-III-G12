@@ -6,24 +6,25 @@
           <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Poster une image
           </div>
           <div class="card-body">
-            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+            <form id="formImage" #imagePost="ngForm" (ngSubmit)="submit(imagePost.value)">
 
               <!-- Sélection de l'image à importer -->
               <div class="form-group my-2">
-                <input type="file" accept=".jpg,.jpeg,.png" class="form-control-file" id="image">
+                <!--<input type="file" accept=".jpg,.jpeg,.png" class="form-control-file" id="image">-->
+                <input name="formImageLien" type="text" ngModel placeholder="Lien de l'image" required>
               </div>
 
               <!-- Description de l'image -->
               <div class="form-group my-2">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3" maxlength="250"></textarea>
+                <textarea name="formImageDescription" class="form-control" id="description" rows="3" maxlength="250" ngModel></textarea>
               </div>
 
               <!-- Input de la date -->
               <div class='col-sm-6 form-group my-2'>
                 <div class="form-group">
                   <div class='input-group date' id='datetimepicker3'>
-                    <input type='date' class="form-control"/>
+                    <input name="formImageDate" type='date' class="form-control" ngModel/>
                     <span class="input-group-addon">
                       <span class="glyphicon glyphicon-time"></span>
                     </span>
@@ -32,25 +33,22 @@
               </div>
 
               <!-- Listes déroulantes des tags -->
-              <div class="form-group col-auto my-2" multiple>
+              <div class="form-group col-auto my-2" multiple ngDefaultControl>
                 <label>Tags</label>
-                <select class="form-control">
-                  <option *ngFor="let i of lstCategorie" value="{{i.idCategorie}}" >
-                    {{i.nomCategorie}}
-                  </option>
-                </select>
-                <select class="form-control">
-                  <option *ngFor="let i of lstCategorie" value="{{i.idCategorie}}" >
-                    {{i.nomCategorie}}
-                  </option>
-                </select>
-                <select class="form-control">
-                  <option *ngFor="let i of lstCategorie" value="{{i.idCategorie}}" >
+                <select *ngFor="let option of lstOptions" name="{{option}}" class="form-control" ngModel>
+                  <option selected value="Null">Aucune</option>
+                  <option *ngFor="let i of lstCategorie" value="{{i.idCategorie}}">
                     {{i.nomCategorie}}
                   </option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary float-right">Poster</button>
+              <button type="submit" [disabled]="!imagePost.form.valid" class="btn btn-primary float-right">Poster</button>
+              <br>
+
+              <!-- Ajout d'un tag à la base de donnée -->
+              <label for="ajoutTag">Ajouter un Tag : </label>
+              <input type="text" name="ajoutTag"/>
+              <button type="button" (click)="ajouterTag()">Ajouter</button>
             </form>
           </div>
         </div>
